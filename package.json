@@ -1,0 +1,49 @@
+{
+  "name": "my-google-keep",
+  "productName": "My Google Keep",
+  "version": "0.1.0-beta",
+  "description": "Desktop client for Google Keep",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "author": "MNTR",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^35.1.5",
+    "electron-builder": "^26.8.1"
+  },
+  "dependencies": {
+    "electron-window-state": "^5.0.3"
+  },
+  "build": {
+    "appId": "com.MNTR.mygooglekeep",
+    "productName": "My Google Keep",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        },
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "portable": {
+      "artifactName": "MyGoogleKeepPortable.exe"
+    }
+  }
+}
